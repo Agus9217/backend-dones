@@ -7,9 +7,9 @@ const questionSchema = new Schema({
     trim: true,
   }
 },
-  {
-    timestamps: true,
-    versionKey: false
-  })
+{
+  timestamps: true,
+  versionKey: false
+})
 
 export default model('Question', questionSchema)

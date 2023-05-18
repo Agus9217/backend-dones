@@ -1,26 +1,27 @@
+import { questionsItemModel } from "../models/questionsItem.models.js"
 
 const createQuestionItemServices = (question) => {
-  const newQuestion = questionsModels.create(question)
+  const newQuestion = questionsItemModel.create(question);
   return newQuestion
 }
 
 const getAllQuestionsItemServices = () => {
-  const findAllQuestions = questionsModels.find()
+  const findAllQuestions = questionsItemModel.find()
   return findAllQuestions
 }
 
 const getOneQuestionItemService = (id) => {
-  const findOne = questionsModels.findById(id)
+  const findOne = questionsItemModel.findById(id)
   return findOne
 }
 
 const updateQuestionItemService = (question) => {
-  const updateQuestion = questionsModels.findOneAndUpdate(question)
+  const updateQuestion = questionsItemModel.findOneAndUpdate(question)
   return updateQuestion
 }
 
 const deleteQuestionItemService = (id) => {
-  const deleteQuestion = questionsModels.findByIdAndDelete(id)
+  const deleteQuestion = questionsItemModel.findByIdAndDelete(id)
   return deleteQuestion
 }
 
