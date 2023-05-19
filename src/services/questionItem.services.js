@@ -15,8 +15,8 @@ const getOneQuestionItemService = (id) => {
   return findOne
 }
 
-const updateQuestionItemService = (question) => {
-  const updateQuestion = questionsItemModel.findOneAndUpdate(question)
+const updateQuestionItemService = (id, question) => {
+  const updateQuestion = questionsItemModel.findByIdAndUpdate(id, question, { new: true })
   return updateQuestion
 }
 
