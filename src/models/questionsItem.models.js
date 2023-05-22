@@ -15,24 +15,7 @@ const questionsItem = new Schema({
     timestamps: true,
     versionKey: false
   })
-
-
+  
 export const questionsItemModel =  model('Question_item', questionsItem)
 
-// questionsItemModel.aggregate([
-//   {
-//     $lookup: {
-//       from: 'questions',
-//       localField: 'question_name',
-//       foreignField: '_id',
-//       as: 'question_name_primary'
-//     }
-//   },
-//   {
-//     $unwind: '$question_name_primary'
-//   }
-// ]).then(results => {
-//     console.log(results)
-//   }).catch(err => {
-//     console.log(err)
-//   })
+

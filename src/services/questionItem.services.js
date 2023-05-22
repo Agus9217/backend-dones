@@ -7,6 +7,23 @@ const createQuestionItemServices = (question) => {
 
 const getAllQuestionsItemServices = () => {
   const findAllQuestions = questionsItemModel.find()
+questionsItemModel.aggregate([
+  {
+    $lookup: {
+      from: 'questions',
+      localField: 'question_name',
+      foreignField: '_id',
+      as: 'question_name_primary'
+    }
+  },
+  {
+    $unwind: '$question_name_primary'
+  }
+]).then(results => {
+    console.log(results)
+  }).catch(err => {
+    console.log(err)
+  })
   return findAllQuestions
 }
 
