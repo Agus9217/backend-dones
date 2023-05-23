@@ -13,5 +13,5 @@ app.use(cors())
 app.use('/api', router)
 
 app.listen(PORT, () => {
-  console.log(`Server is runing on: http://localhost:${PORT}`)
+  console.log(`Server is runing on: http://localhost:${PORT}/api`)
 })

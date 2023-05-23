@@ -2,6 +2,7 @@ import { createQuestionItemServices, deleteQuestionItemService, getAllQuestionsI
 import mongoose from "mongoose"
 
 const createQuestionItemController = async (req, res) => {
+  console.log(req.reqItem)
   try {
     const { name, question } = req.body
     if(!name || !question){

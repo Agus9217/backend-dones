@@ -10,9 +10,9 @@ const getAllQuestionsItemServices = () => {
     {
       $lookup: {
         from: 'questions',
-        localField: 'question_name',
+        localField: 'question',
         foreignField: '_id',
-        as: 'question_name_primary'
+        as: 'question_item'
       }
     }
   ])
