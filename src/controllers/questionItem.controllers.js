@@ -2,18 +2,26 @@ import { createQuestionItemServices, deleteQuestionItemService, getAllQuestionsI
 import mongoose from "mongoose"
 
 const createQuestionItemController = async (req, res) => {
-  console.log(req.reqItem)
+  
   try {
     const { name, question } = req.body
     if(!name || !question){
       res.status(404).send({ message: 'Please fill all required fields'})
-    } else {
+    } else if(req.reqItem == null){
       const newQuestion = {
         name,
         question
       }
       await createQuestionItemServices(newQuestion)
       res.status(200).send({ status: 'OK', data: newQuestion })
+    } else {
+      const newQuestionIncrement = {
+        name,
+        question_id: req.reqItem.question_id += 1,
+        question
+      }
+      await createQuestionItemServices(newQuestionIncrement)
+      res.status(200).send({ status: 'OK', data: newQuestionIncrement })
     }
   } catch (error) {
     res.status(500).send({ status: 'BAD REQUEST', message: 'Error creating', error: error })
